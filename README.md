@@ -25,6 +25,7 @@ estoque (produtos, categorias e movimentações). O aplicativo mobile da UC cont
 
 | Tag | Encontro | O que entrou |
 |---|---|---|
+| `aula5` | 5 | Template limpo; entidades de referência em `src/types/entidades.ts`; componentes `Cabecalho`, `Rodape` e `CartaoProduto` em `src/componentes/`, compostos no `App` |
 
 ## Stack
 
