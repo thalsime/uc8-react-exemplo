@@ -1,7 +1,11 @@
-export function Cabecalho() {
+interface CabecalhoProps {
+  titulo: string;
+}
+
+export function Cabecalho({ titulo }: CabecalhoProps) {
   return (
     <header>
-      <h1>Controle de estoque</h1>
+      <h1>{titulo}</h1>
       <p>Produtos, categorias e movimentações</p>
     </header>
   );
