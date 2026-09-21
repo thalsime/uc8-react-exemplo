@@ -16,7 +16,7 @@ estoque (produtos, categorias e movimentações). O aplicativo mobile da UC cont
 - Para ver o projeto como estava em um encontro:
 
   ```bash
-  git checkout aula6
+  git checkout aula7
   ```
 
   Para voltar ao estado mais recente: `git checkout main`. Para listar as tags: `git tag`.
@@ -27,6 +27,7 @@ estoque (produtos, categorias e movimentações). O aplicativo mobile da UC cont
 |---|---|---|
 | `aula5` | 5 | Template limpo; entidades de referência em `src/types/entidades.ts`; componentes `Cabecalho`, `Rodape` e `CartaoProduto` em `src/componentes/`, compostos no `App` |
 | `aula6` | 6 | Props tipadas: `CartaoProduto` recebe o produto, com `limiteBaixo` e `variante` opcionais e valor padrão; `Cabecalho` recebe o título; `CartaoMovimentacao` recebe a movimentação e o nome do produto; dados de exemplo no `App` |
+| `aula7` | 7 | Prática, desafios do enunciado: ternário no campo numérico do cartão (`Sem estoque` quando a quantidade é 0); terceiro produto copiado com espalhamento e quantidade 0; type guard `ehProduto` em `src/utils/guardas.ts` e `CartaoItem`, que escolhe entre `CartaoProduto` e `CartaoMovimentacao` |
 
 ## Stack
 
@@ -88,6 +89,7 @@ por causa da quebra de linha.
 | `src/App.tsx` | O componente raiz: guarda os dados de exemplo e compõe a tela |
 | `src/types/entidades.ts` | As entidades de referência: `Produto`, `Categoria` e `Movimentacao` |
 | `src/componentes/` | Um componente por arquivo, cada um com a `interface` das suas props |
+| `src/utils/guardas.ts` | Type guards: `ehProduto` distingue `Produto` de `Movimentacao` |
 | `src/index.css`, `src/App.css` | Estilos do template |
 | `public/` | Arquivos servidos como estão, como o favicon |
 | `vite.config.ts` | A configuração do Vite |
