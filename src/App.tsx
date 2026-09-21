@@ -1,5 +1,6 @@
 import type { Movimentacao, Produto } from './types/entidades';
 import { Cabecalho } from './componentes/Cabecalho';
+import { CartaoItem } from './componentes/CartaoItem';
 import { CartaoMovimentacao } from './componentes/CartaoMovimentacao';
 import { CartaoProduto } from './componentes/CartaoProduto';
 import { Rodape } from './componentes/Rodape';
@@ -27,6 +28,8 @@ export default function App() {
       <CartaoProduto produto={chavePhillips} variante="resumido" />
       <CartaoProduto produto={chaveEsgotada} />
       <CartaoMovimentacao movimentacao={entradaChave} nomeProduto={chavePhillips.nome} />
+      <CartaoItem item={chavePhillips} />
+      <CartaoItem item={entradaChave} />
       <Rodape />
     </main>
   );
