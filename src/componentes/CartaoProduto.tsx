@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import type { Produto } from '../types/entidades';
 
 type VarianteCartao = 'completo' | 'resumido';
@@ -13,10 +14,19 @@ export function CartaoProduto({
   limiteBaixo = 5,
   variante = 'completo',
 }: CartaoProdutoProps) {
+  const [mostrarDescricao, setMostrarDescricao] = useState(false);
+
   return (
     <article>
       <h2>{produto.nome}</h2>
-      {variante === 'completo' && <p>{produto.descricao ?? 'Sem descrição'}</p>}
+      {variante === 'completo' && (
+        <button onClick={() => setMostrarDescricao(!mostrarDescricao)}>
+          {mostrarDescricao ? 'Esconder descrição' : 'Ver descrição'}
+        </button>
+      )}
+      {variante === 'completo' && mostrarDescricao && (
+        <p>{produto.descricao ?? 'Sem descrição'}</p>
+      )}
       <p>{produto.quantidade > 0 ? `${produto.quantidade} em estoque` : 'Sem estoque'}</p>
       {produto.quantidade <= limiteBaixo && <p>Estoque baixo</p>}
     </article>
