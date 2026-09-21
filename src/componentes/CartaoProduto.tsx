@@ -17,7 +17,7 @@ export function CartaoProduto({
     <article>
       <h2>{produto.nome}</h2>
       {variante === 'completo' && <p>{produto.descricao ?? 'Sem descrição'}</p>}
-      <p>{produto.quantidade} em estoque</p>
+      <p>{produto.quantidade > 0 ? `${produto.quantidade} em estoque` : 'Sem estoque'}</p>
       {produto.quantidade <= limiteBaixo && <p>Estoque baixo</p>}
     </article>
   );
