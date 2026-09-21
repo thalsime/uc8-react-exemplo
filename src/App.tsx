@@ -1,8 +1,10 @@
+import { useState } from 'react';
 import type { Movimentacao, Produto } from './types/entidades';
 import { Cabecalho } from './componentes/Cabecalho';
 import { CartaoItem } from './componentes/CartaoItem';
 import { CartaoMovimentacao } from './componentes/CartaoMovimentacao';
 import { CartaoProduto } from './componentes/CartaoProduto';
+import { FormularioProduto } from './componentes/FormularioProduto';
 import { Rodape } from './componentes/Rodape';
 
 const parafuso: Produto = {
@@ -21,10 +23,13 @@ const entradaChave: Movimentacao = {
 };
 
 export default function App() {
+  const [produto, setProduto] = useState<Produto>(parafuso);
+
   return (
     <main>
       <Cabecalho titulo="Controle de estoque" />
-      <CartaoProduto produto={parafuso} limiteBaixo={200} />
+      <FormularioProduto aoEnviar={setProduto} />
+      <CartaoProduto produto={produto} limiteBaixo={200} />
       <CartaoProduto produto={chavePhillips} variante="resumido" />
       <CartaoProduto produto={chaveEsgotada} />
       <CartaoMovimentacao movimentacao={entradaChave} nomeProduto={chavePhillips.nome} />
