@@ -29,6 +29,7 @@ estoque (produtos, categorias e movimentações). O aplicativo mobile da UC cont
 | `aula6` | 6 | Props tipadas: `CartaoProduto` recebe o produto, com `limiteBaixo` e `variante` opcionais e valor padrão; `Cabecalho` recebe o título; `CartaoMovimentacao` recebe a movimentação e o nome do produto; dados de exemplo no `App` |
 | `aula7` | 7 | Prática, desafios do enunciado: ternário no campo numérico do cartão (`Sem estoque` quando a quantidade é 0); terceiro produto copiado com espalhamento e quantidade 0; type guard `ehProduto` em `src/utils/guardas.ts` e `CartaoItem`, que escolhe entre `CartaoProduto` e `CartaoMovimentacao` |
 | `aula8` | 8 | Estado com `useState` e eventos: `CartaoProduto` alterna a descrição com um botão; `FormularioProduto` controlado, com um estado por campo, `onSubmit` e `preventDefault`, entregando o produto por uma prop função; o `App` guarda o produto em estado e o primeiro cartão reflete o que o formulário envia |
+| `aula9` | 9 | Listas e `useEffect`: `src/servicos/produtos.ts` expõe `carregarProdutos()`, que devolve os produtos numa `Promise` resolvida por `setTimeout`; `ListaProdutos` percorre o array com `.map` e `key`, com o caso vazio tratado à parte; o `App` chama `carregarProdutos()` num `useEffect` de dependências vazias, guarda `produtos` e `carregando` em estado, e mostra uma mensagem de carregamento antes da lista; o formulário passa a acrescentar o produto enviado ao array, em vez de substituir um único cartão |
 
 ## Stack
 
@@ -87,9 +88,10 @@ por causa da quebra de linha.
 |---|---|
 | `index.html` | A página que o navegador abre, com a `div` onde o React desenha |
 | `src/main.tsx` | O ponto de entrada: entrega a `div` ao React e desenha o `App` |
-| `src/App.tsx` | O componente raiz: guarda os dados de exemplo e o produto em edição (estado), e compõe a tela |
+| `src/App.tsx` | O componente raiz: carrega os produtos no `useEffect`, guarda o estado de carregamento e a lista, e compõe a tela |
 | `src/types/entidades.ts` | As entidades de referência: `Produto`, `Categoria` e `Movimentacao` |
 | `src/componentes/` | Um componente por arquivo, cada um com a `interface` das suas props |
+| `src/servicos/produtos.ts` | `carregarProdutos()`, que devolve os produtos numa `Promise` |
 | `src/utils/guardas.ts` | Type guards: `ehProduto` distingue `Produto` de `Movimentacao` |
 | `src/index.css`, `src/App.css` | Estilos do template |
 | `public/` | Arquivos servidos como estão, como o favicon |
