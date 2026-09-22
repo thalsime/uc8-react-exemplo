@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import type { Produto } from '../types/entidades';
 
-// Categoria fixa até o módulo das listas, quando o formulário passa a escolher entre as cadastradas.
+// Categoria fixa por enquanto.
 const CATEGORIA_PADRAO = 1;
 
 interface FormularioProdutoProps {
